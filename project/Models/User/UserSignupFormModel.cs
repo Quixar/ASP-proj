@@ -1,24 +1,24 @@
+using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 
 namespace project.Models.User;
 
 public class UserSignupFormModel
 {
-    [FromForm(Name = "user-name")]
-    public String UserName { get; set; } = null!;
+    [Required, FromForm(Name = "username")]
+    public string Username { get; set; } = string.Empty;
 
-    [FromForm(Name = "user-email")]
-    public String UserEmail { get; set; } = null!;
+    [FromForm(Name = "name")]
+    public string? Name { get; set; }
 
-    [FromForm(Name = "birthdate")]
-    public DateTime? Birthdate { get; set; }
+    [Required, EmailAddress, FromForm(Name = "email")]
+    public string Email { get; set; } = string.Empty;
 
-    [FromForm(Name = "user-login")]
-    public String UserLogin { get; set; } = null!;
+    [Required, MinLength(6), FromForm(Name = "password")]
+    public string Password { get; set; } = string.Empty;
 
-    [FromForm(Name = "user-password")]
-    public String UserPassword { get; set; } = null!;
+    [Required, Compare(nameof(Password)), FromForm(Name = "repeat-password")]
+    public string ConfirmPassword { get; set; } = string.Empty;
 
-    [FromForm(Name = "user-repeat")]
-    public String UserRepeat { get; set; } = null!;
+    public bool RememberMe { get; set; }
 }
