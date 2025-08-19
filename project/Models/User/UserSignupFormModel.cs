@@ -1,24 +1,38 @@
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc;
 
 namespace project.Models.User;
 
 public class UserSignupFormModel
 {
-    [Required, FromForm(Name = "username")]
+    [Required(ErrorMessage = "Username is required")]
+    [Display(Name = "Username")]
     public string Username { get; set; } = string.Empty;
 
-    [FromForm(Name = "name")]
+    [Display(Name = "Your Name")]
     public string? Name { get; set; }
 
-    [Required, EmailAddress, FromForm(Name = "email")]
+    [Required(ErrorMessage = "Email is required")]
+    [EmailAddress(ErrorMessage = "Invalid Email format")]
+    [Display(Name = "E-mail")]
     public string Email { get; set; } = string.Empty;
 
-    [Required, MinLength(6), FromForm(Name = "password")]
+    [Required(ErrorMessage = "Password is required")]
+    [DataType(DataType.Password)]
+    [MinLength(8, ErrorMessage = "Password must be at least 8 characters long")]
+    [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$",
+        ErrorMessage = "Password must contain uppercase and lowercase letters, and numbers.")]
+    [Display(Name = "Password")]
     public string Password { get; set; } = string.Empty;
 
-    [Required, Compare(nameof(Password)), FromForm(Name = "repeat-password")]
+    [Required(ErrorMessage = "Please repeat the password")]
+    [DataType(DataType.Password)]
+    [Compare(nameof(Password), ErrorMessage = "Passwords do not match")]
+    [Display(Name = "Repeat password")]
     public string ConfirmPassword { get; set; } = string.Empty;
 
-    public bool RememberMe { get; set; }
+    // [CORRECTED] Using 'Range' for checkbox validation.
+    // 'Required' does not work as 'false' is a valid value.
+    [Range(typeof(bool), "true", "true", ErrorMessage = "You must agree to the site's terms")]
+    [Display(Name = "I agree to the terms")]
+    public bool Agree { get; set; }
 }

@@ -1,13 +1,13 @@
 ﻿@{
-    ViewData["Title"] = "Головна";
+    ViewData["Title"] = "Home";
 }
 
 <div style="background-color: #f8f9fa; color: #333; padding: 80px 0; border-radius: 10px;">
     <div class="container text-center animate__animated animate__fadeIn">
-        <h1 class="display-4 fw-bold mb-3">Вітаємо у MyApp!</h1>
-        <p class="lead mb-4 text-muted">Сучасний ASP.NET Core MVC застосунок у мінімалістичному стилі.</p>
-        <a class="btn btn-dark btn-lg shadow-sm me-2 animate__animated animate__fadeInUp" style="animation-delay: 0.3s;" asp-controller="User" asp-action="SignUp">Реєстрація</a>
-        <a class="btn btn-outline-dark btn-lg shadow-sm animate__animated animate__fadeInUp" style="animation-delay: 0.5s;" asp-controller="Home" asp-action="Category">Дивитися категорії</a>
+        <h1 class="display-4 fw-bold mb-3">Welcome to MyApp!</h1>
+        <p class="lead mb-4 text-muted">A modern ASP.NET Core MVC application in a minimalist style.</p>
+        <a class="btn btn-dark btn-lg shadow-sm me-2 animate__animated animate__fadeInUp" style="animation-delay: 0.3s;" asp-controller="User" asp-action="SignUp">Register</a>
+        <a class="btn btn-outline-dark btn-lg shadow-sm animate__animated animate__fadeInUp" style="animation-delay: 0.5s;" asp-controller="Home" asp-action="Category">View Categories</a>
     </div>
 </div>
 
@@ -18,9 +18,9 @@
                 <div class="mb-3" style="font-size: 2rem; color: #6c757d;">
                     <i class="bi bi-grid"></i>
                 </div>
-                <h5 class="card-title fw-semibold">Перегляд категорій</h5>
-                <p class="card-text text-muted">Досліджуйте усі доступні категорії та товари.</p>
-                <a asp-controller="Home" asp-action="Category" class="btn btn-outline-dark">Переглянути</a>
+                <h5 class="card-title fw-semibold">View Categories</h5>
+                <p class="card-text text-muted">Explore all available categories and products.</p>
+                <a asp-controller="Home" asp-action="Category" class="btn btn-outline-dark">View</a>
             </div>
         </div>
     </div>
@@ -31,9 +31,9 @@
                 <div class="mb-3" style="font-size: 2rem; color: #6c757d;">
                     <i class="bi bi-person-plus"></i>
                 </div>
-                <h5 class="card-title fw-semibold">Реєстрація</h5>
-                <p class="card-text text-muted">Створіть свій обліковий запис та отримайте повний доступ.</p>
-                <a asp-controller="User" asp-action="SignUp" class="btn btn-dark">Зареєструватися</a>
+                <h5 class="card-title fw-semibold">Registration</h5>
+                <p class="card-text text-muted">Create your account and get full access.</p>
+                <a asp-controller="User" asp-action="SignUp" class="btn btn-dark">Register</a>
             </div>
         </div>
     </div>
@@ -44,31 +44,31 @@
                 <div class="mb-3" style="font-size: 2rem; color: #6c757d;">
                     <i class="bi bi-info-circle"></i>
                 </div>
-                <h5 class="card-title fw-semibold">Про нас</h5>
-                <p class="card-text text-muted">Дізнайтеся більше про наш сервіс та його можливості.</p>
-                <a asp-controller="Home" asp-action="Profile" class="btn btn-outline-dark">Детальніше</a>
+                <h5 class="card-title fw-semibold">About Us</h5>
+                <p class="card-text text-muted">Learn more about our service and its features.</p>
+                <a asp-controller="Home" asp-action="Profile" class="btn btn-outline-dark">Learn More</a>
             </div>
         </div>
     </div>
 </div>
 
 <div class="mt-5">
-    <h2 class="text-center mb-4 fw-semibold">Чому обирають нас?</h2>
+    <h2 class="text-center mb-4 fw-semibold">Why Choose Us?</h2>
     <div class="row g-4 text-center">
         <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
             <i class="bi bi-speedometer2" style="font-size: 2rem; color: #6c757d;"></i>
-            <h5 class="mt-3 fw-semibold">Висока швидкість</h5>
-            <p class="text-muted">Наш додаток працює швидко та стабільно.</p>
+            <h5 class="mt-3 fw-semibold">High Speed</h5>
+            <p class="text-muted">Our application works quickly and stably.</p>
         </div>
         <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
             <i class="bi bi-shield-check" style="font-size: 2rem; color: #6c757d;"></i>
-            <h5 class="mt-3 fw-semibold">Безпека</h5>
-            <p class="text-muted">Ми дбаємо про захист ваших даних.</p>
+            <h5 class="mt-3 fw-semibold">Security</h5>
+            <p class="text-muted">We care about protecting your data.</p>
         </div>
         <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
             <i class="bi bi-heart" style="font-size: 2rem; color: #6c757d;"></i>
-            <h5 class="mt-3 fw-semibold">Зручність</h5>
-            <p class="text-muted">Інтерфейс розроблено з урахуванням комфорту користувача.</p>
+            <h5 class="mt-3 fw-semibold">Convenience</h5>
+            <p class="text-muted">The interface is designed with user comfort in mind.</p>
         </div>
     </div>
 </div>
