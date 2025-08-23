@@ -6,7 +6,7 @@
 <div class="container mt-5" style="max-width: 500px;">
     <h2 class="text-center mb-4">Log In</h2>
 
-    <form asp-action="Login" method="post">
+    <form asp-action="SignIn" method="post">
         @Html.AntiForgeryToken()
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -31,6 +31,6 @@
     </form>
 
     <p class="text-center mt-3">
-        Don't have an account? <a asp-controller="Auth" asp-action="Register">Sign Up</a>
+        Don't have an account? <a asp-controller="User" asp-action="SignUp">Sign Up</a>
     </p>
 </div>

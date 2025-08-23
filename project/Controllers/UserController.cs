@@ -23,7 +23,6 @@ public class UserController : Controller
         _kdfService = kdfService;
     }
 
-    // ---------------- LOGIN ----------------
     [HttpGet, AllowAnonymous]
     public IActionResult SignIn(string? returnUrl = null)
     {
@@ -43,7 +42,8 @@ public class UserController : Controller
 
         if (userAccess == null || !VerifyPassword(model.Password, userAccess.Salt, userAccess.Dk))
         {
-            ModelState.AddModelError(nameof(model.Username), "Invalid username or password");
+            // Запоминаем ошибку в TempData для отображения в Layout
+            TempData["AuthError"] = "Invalid username or password";
             return View(model);
         }
 
@@ -60,7 +60,6 @@ public class UserController : Controller
         return RedirectToAction("Index", "Home");
     }
 
-    // ---------------- REGISTER ----------------
     [HttpGet, AllowAnonymous]
     public IActionResult SignUp()
     {
@@ -127,7 +126,6 @@ public class UserController : Controller
         return RedirectToAction("Index", "Home");
     }
 
-    // ---------------- LOGOUT ----------------
     [HttpPost, Authorize, ValidateAntiForgeryToken]
     public async Task<IActionResult> Logout()
     {
@@ -135,7 +133,6 @@ public class UserController : Controller
         return RedirectToAction(nameof(SignIn));
     }
 
-    // ---------------- HELPERS ----------------
     private async Task SignInAsync(string userId, string userName, string role, bool isPersistent = false)
     {
         var claims = new List<Claim>
@@ -159,10 +156,9 @@ public class UserController : Controller
         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, authProps);
     }
 
-    // ---------------- PASSWORD HELPERS ----------------
     private string GenerateSalt()
     {
-        byte[] salt = RandomNumberGenerator.GetBytes(16); // 128 бит
+        byte[] salt = RandomNumberGenerator.GetBytes(16);
         return Convert.ToBase64String(salt);
     }
 
